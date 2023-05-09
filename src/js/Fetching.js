@@ -19,36 +19,30 @@ class Fetching {
 
   static async createTicket(card) {
     const body = JSON.stringify(card);
-    const response = await fetch(
-      `http://localhost:7071/?method=createTicket`, {
-        body,
-        method: 'POST'
-      }
-    );
+    const response = await fetch(`http://localhost:7071/?method=createTicket`, {
+      body,
+      method: "POST",
+    });
     const json = await response.json();
     return json;
   }
 
   static async changeTicket(card) {
     const body = JSON.stringify(card);
-    const response = await fetch(
-      `http://localhost:7071/?id=${card.id}`, {
-        body,
-        method: 'PUT'
-      }
-    );
+    const response = await fetch(`http://localhost:7071/?id=${card.id}`, {
+      body,
+      method: "PUT",
+    });
     const json = await response.json();
     return json;
   }
 
   static async deleteTicket({ id }) {
     const body = JSON.stringify(id);
-    const response = await fetch(
-      `http://localhost:7071/?method=deleteTicket`, {
-        body,
-        method: 'POST'
-      }
-    );
+    const response = await fetch(`http://localhost:7071/?method=deleteTicket`, {
+      body,
+      method: "POST",
+    });
     const json = await response.json();
     return json;
   }

@@ -3,20 +3,21 @@ class Modal {
     this.modal = null;
   }
 
-  getModal({ type, title, name = '', description = '' }) {
-    this.modal = document.createElement('div');
-    this.modal.className = 'modal';
-    this.modal.innerHTML = type === 'delete'
-      ? this.deleteTicket(title)
-      : this.addChangeTicket(title, name, description)
- 
+  getModal({ type, title, name = "", description = "" }) {
+    this.modal = document.createElement("div");
+    this.modal.className = "modal";
+    this.modal.innerHTML =
+      type === "delete"
+        ? this.deleteTicket(title)
+        : this.addChangeTicket(title, name, description);
+
     document.body.appendChild(this.modal);
 
-    this.modal.addEventListener('click', (event) => {
-      if (event.target.classList.contains('modal__btn-reset')) {
+    this.modal.addEventListener("click", (event) => {
+      if (event.target.classList.contains("modal__btn-reset")) {
         return this.modal.remove();
       }
-    })
+    });
 
     return document.forms[0];
   }
