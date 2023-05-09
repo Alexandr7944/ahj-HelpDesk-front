@@ -32,7 +32,7 @@ class Fetching {
   static async changeTicket(card) {
     const body = JSON.stringify(card);
     const response = await fetch(
-      `http://localhost:7071/`, {
+      `http://localhost:7071/?id=${card.id}`, {
         body,
         method: 'PUT'
       }
